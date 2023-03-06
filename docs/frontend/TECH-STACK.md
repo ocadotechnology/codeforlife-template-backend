@@ -158,6 +158,8 @@ Required Reading:
 
 ### Cypress
 
+*TODO: Research and agree to use Cypress over Selenium!*
+
 Cypress is a front end testing tool for web applications. Cypress runs on Windows, Linux, and macOS. Furthermore, Cypress can be tailored to specifically [test React components](https://docs.cypress.io/guides/component-testing/overview).
 
 Cypress allows us to write [many types of tests](https://docs.cypress.io/guides/overview/why-cypress#Who-uses-Cypress):
