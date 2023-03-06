@@ -24,24 +24,6 @@ graph BT;
 
 The following sections describe what benefit each technology brings to the stack.
 
-## Code
-
-### JavaScript (JS)
-
-JS is our programming language of choice. It will define the webpage behavior on clients' devices.
-
-### TypesScript (TS)
-
-TS builds on top of JS to provide type safety. Type safety provides many crucial benefits for a medium-to-large scale project:
-
-1. Static [variable] typing. This improves readability and also allows for build-time errors (rather than run-time).
-1. Great tooling support with IntelliSense (code recommendations/snippets).
-1. Allows for backwards compatibility with older versions of JS. TS can be compiled to old JS versions.
-
-### ESLint
-
-ESLint is a JS/TS library. It builds on top of TS to provide consist code formatting conventions. Well formatted code improves readability for developers. When code is pushed to a branch, a pipeline will auto-run ESLint to check the formatting of your code - unformatted code will be rejected.
-
 ## Style
 
 ### CSS
@@ -64,6 +46,24 @@ Key SCSS features:
 1. Operators - For example, mathematical operations.
 
 Read the [official SCSS guide](https://sass-lang.com/guide) for comprehensive descriptions and examples of each feature.
+
+## Code
+
+### JavaScript (JS)
+
+JS is our programming language of choice. It will define the webpage behavior on clients' devices.
+
+### TypesScript (TS)
+
+TS builds on top of JS to provide type safety. Type safety provides many crucial benefits for a medium-to-large scale project:
+
+1. Static [variable] typing. This improves readability and also allows for build-time errors (rather than run-time).
+1. Great tooling support with IntelliSense (code recommendations/snippets).
+1. Allows for backwards compatibility with older versions of JS. TS can be compiled to old JS versions.
+
+### ESLint
+
+ESLint is a JS/TS library. It builds on top of TS to provide consist code formatting conventions. Well formatted code improves readability for developers. When code is pushed to a branch, a pipeline will auto-run ESLint to check the formatting of your code - unformatted code will be rejected.
 
 ## UI
 
