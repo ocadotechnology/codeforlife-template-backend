@@ -14,7 +14,8 @@ graph BT;
     eslint -->|code formatting| react & redux;
     subgraph UI;
         react -->|UI components| react-redux;
-        redux -->|global state management| react-redux & redux-toolkit;
+        redux -->|global state management| react-redux & redux-thunk;
+        redux-thunk -->|async logic| redux-toolkit;
     end;
     react-redux -->|react-redux integration| APP;
     redux-toolkit -->|boilerplate generators| APP;
@@ -38,7 +39,7 @@ TS builds on top of JS to provide type safety. Type safety provides many crucial
 
 ### ESLint
 
-Builds on top of TypeScript to provide consist code formatting conventions. Well formatted code improves readability for developers.
+ESLint is a JS/TS library. It builds on top of TS to provide consist code formatting conventions. Well formatted code improves readability for developers. When code is pushed to a branch, a pipeline will auto-run ESLint to check the formatting of your code - unformatted code will be rejected.
 
 ## Style
 
@@ -62,3 +63,60 @@ Key SCSS features:
 1. Operators - For example, mathematical operations.
 
 Read the [official SCSS guide](https://sass-lang.com/guide) for comprehensive descriptions and examples of each feature.
+
+## UI
+
+### REACT
+
+REACT is a JS library for building UI components. Our REACT components will be written in TS. There are two approaches to writing REACT components: [class components vs functional components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). Functional components are the latest REACT standard and will be the approach we take.
+
+Key features:
+
+1. Performance - REACT components have a well structured life-cycle that allow for efficient data rendering. 
+1. Readability - Components are structured in a manner that allows developers to directly link data to HTML elements.  
+1. Reusability - Generic components can be created to remove boilerplate components.
+
+Required Reading:
+
+1. [Core React Hooks](https://www.valentinog.com/blog/hooks/)
+
+### Redux
+
+Redux is a JS library for managing and centralizing application state.
+
+Redux is critical for medium-to-large scale projects as state management can quickly grow out of control. Furthermore, Redux solves prop-drilling, where data is passed through multiple layers of components. Rather, components will now subscribe to a "global data store" to retrieve the data they require. What's more, any updates made to the relevant data will be synced with any mounted components that are currently using that data.
+
+Required Reading:
+
+1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how redux can integrated into REACT components.
+1. [Redux Style Guide](https://redux.js.org/style-guide/) - we must follow these redux style guidelines!
+
+NOTE: Redux serves the same purpose as REACT's native ContextAPI. However, Redux is more sophisticated is generally the standard for production-ready apps.
+
+### react-redux
+
+react-redux is a JS library that integrates Redux into REACT.
+
+react-redux allows Redux to provide it's "global data store" to all REACT components in our REACT app.
+
+```tsx
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+
+const root = createRoot(document.getElementById('root')!);
+
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
+
+### redux-thunk
+
+TODO
+
+### redux-toolkit
+
+TODO
