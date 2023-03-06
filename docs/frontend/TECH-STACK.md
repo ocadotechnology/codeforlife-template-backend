@@ -82,6 +82,15 @@ Required Reading:
 1. [Core React Hooks](https://www.valentinog.com/blog/hooks/)
 1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html)
 
+### Material UI (MUI)
+
+MUI is a library of React UI components that implements Google's Material Design.
+
+Required Reading:
+
+1. [MUI Components](https://mui.com/material-ui/react-autocomplete/) - familiarize yourself with all the components MUI offers.
+1. [MUI Grid v2](https://mui.com/material-ui/react-grid2/) - used for responsive design so understand this thoroughly!
+
 ### Redux
 
 Redux is a JS library for managing and centralizing application state.
