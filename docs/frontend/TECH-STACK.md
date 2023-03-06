@@ -9,16 +9,20 @@ graph BT;
     subgraph Style;
         css[CSS] -->|stylized components| scss[SCSS];
     end;
-    scss -->|syntax preprocessing| react[React]
+    scss -->|syntax preprocessing| react[React];
     subgraph Code;
-        javascript[JavaScript] -->|component functionality| typescript[TypeScript] -->|type safety| eslint[ESLint];
+        js[JavaScript] -->|component functionality| ts[TypeScript] -->|type safety| eslint[ESLint];
     end;
     eslint -->|code formatting| react & redux[Redux];
+    subgraph Test;
+      cypress[Cypress];
+    end;
     subgraph UI;
-        react -->|components| mui[Material UI] & react-redux;
+        react -->|components| cypress & mui[Material UI] & react-redux;
         redux -->|global state management| react-redux & redux-thunk;
         redux-thunk -->|async logic| redux-toolkit;
     end;
+    cypress -->|E2E testing| APP;
     mui -->|pre-stylized components| APP;
     react-redux -->|react-redux integration| APP;
     redux-toolkit -->|boilerplate generators| APP;
@@ -149,3 +153,24 @@ Required Reading:
 
 1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how toolkit reduces Redux boilerplate.
 1. [Introduction to Immer](https://immerjs.github.io/immer/) - simplifies writing immutable state logic.
+
+## Test
+
+### Cypress
+
+Cypress is a front end testing tool for web applications. Cypress runs on Windows, Linux, and macOS. Furthermore, Cypress can be tailored to specifically [test React components](https://docs.cypress.io/guides/component-testing/overview).
+
+Cypress allows us to write [many types of tests](https://docs.cypress.io/guides/overview/why-cypress#Who-uses-Cypress):
+1. End-to-end (E2E) tests.
+1. Component tests.
+1. Integration tests.
+1. Unit tests.
+
+Required Reading:
+
+1. [Testing React Components](https://docs.cypress.io/guides/component-testing/react/quickstart#Testing-React-Components) - understand how to mount components and make assertions.
+
+**NOTE:** There are trade-offs to using Cypress over Selenium for testing. See:
+1. [Cypress Features](https://docs.cypress.io/guides/overview/why-cypress#Features)
+1. [Cypress Tradeoffs](https://docs.cypress.io/guides/references/trade-offs)
+1. [Cypress Limitations](https://www.browserstack.com/guide/cypress-vs-selenium#:~:text=Selenium%20is%20preferred%20over%20Cypress%20when%20one%20need%3A)
