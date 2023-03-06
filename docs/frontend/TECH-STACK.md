@@ -1,6 +1,8 @@
 # Frontend Technology Stack
 
-This document details the stack of technologies all CodeForLife frontend's will rely on. This graph, from bottom to top, names the technologies used and what they provide to the next layer.
+This document details the stack of technologies all CodeForLife frontend's will rely on.
+
+This graph names the technologies used and what they provide to the next layer. It should be read from bottom-to-top, left-to-right
 
 ```mermaid
 graph BT;
@@ -28,11 +30,11 @@ The following sections describe what benefit each technology brings to the stack
 
 ### CSS
 
-Used to describe the style of our web page.
+CSS is a languages used to describe the style of our web page.
 
 ### SCSS
 
-**NOTE:** SCSS is also known as SASS. The small difference between them is how their syntax. SCSS uses curly braces to define scopes while SASS uses indentations. We will be using SCSS.
+**NOTE:** SCSS is also known as SASS. The small difference between them is their syntax - SCSS uses curly braces to define scopes while SASS uses indentations. We will be using SCSS.
 
 SCSS builds on top of CSS to provide cleaner CSS syntax. This provides many important benefits that will reduce the size of CSS code and promote reusability. At build-time, SCSS will compiled to regular CSS.
 
@@ -45,25 +47,27 @@ Key SCSS features:
 1. Inheritance - Extend parent styles.
 1. Operators - For example, mathematical operations.
 
-Read the [official SCSS guide](https://sass-lang.com/guide) for comprehensive descriptions and examples of each feature.
+Required Reading:
+
+1. [SCSS Basics](https://sass-lang.com/guide) - understand the descriptions and examples of each feature.
 
 ## Code
 
 ### JavaScript (JS)
 
-JS is our programming language of choice. It will define the webpage behavior on clients' devices.
+JS is a programming language used to define the webpage behavior on clients' devices.
 
 ### TypesScript (TS)
 
 TS builds on top of JS to provide type safety. Type safety provides many crucial benefits for a medium-to-large scale project:
 
-1. Static [variable] typing. This improves readability and also allows for build-time errors (rather than run-time).
-1. Great tooling support with IntelliSense (code recommendations/snippets).
-1. Allows for backwards compatibility with older versions of JS. TS can be compiled to old JS versions.
+1. Static [variable] typing - improves readability and also allows for build-time errors (rather than run-time).
+1. Great tooling support with IntelliSense - for code recommendations / snippets.
+1. Allows for backwards compatibility - TS can be compiled to older versions of JS.
 
 ### ESLint
 
-ESLint is a JS/TS library. It builds on top of TS to provide consist code formatting conventions. Well formatted code improves readability for developers. When code is pushed to a branch, a pipeline will auto-run ESLint to check the formatting of your code - unformatted code will be rejected.
+ESLint is a JS library. It builds on top of TS to provide consist code formatting conventions. Well formatted code improves readability for developers. When code is pushed to a branch, a pipeline will auto-run ESLint to check the formatting of your code - unformatted code will be rejected.
 
 ## UI
 
@@ -79,8 +83,8 @@ Key features:
 
 Required Reading:
 
-1. [Core React Hooks](https://www.valentinog.com/blog/hooks/)
-1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html)
+1. [Core React Hooks](https://www.valentinog.com/blog/hooks/) - thoroughly understand useState and useEffect. 
+1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html) - be generally aware of the other hooks and their purpose. 
 
 ### Material UI (MUI)
 
@@ -99,10 +103,10 @@ Redux is critical for medium-to-large scale projects as state management can qui
 
 Required Reading:
 
-1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how redux can integrated into React components.
-1. [Redux Style Guide](https://redux.js.org/style-guide/) - we must follow these redux style guidelines!
+1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how Redux integrates into React components.
+1. [Redux Style Guide](https://redux.js.org/style-guide/) - we must follow these Redux style guidelines!
 
-NOTE: Redux serves the same purpose as React's native ContextAPI. However, Redux is more sophisticated is generally the standard for production-ready apps.
+**NOTE:** Redux serves the same purpose as React's native ContextAPI. However, Redux is more sophisticated and is generally the standard for production-ready apps. We will use Redux as our store provider.
 
 ### react-redux
 
@@ -130,6 +134,7 @@ redux-thunk is a JS library that builds on top of Redux. More specifically, it's
 
 Required Reading:
 
+1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn thunks support async calls. Ignore the part about redux-saga.
 1. [Writing Logic with Thunks](https://redux.js.org/usage/writing-logic-thunks) - Thunks will encapsulate all sync + async business logic on the frontend.
 
 NOTE: redux-thunk is included in redux-toolkit by default as it's the standard approach to writing async actions with Redux.
@@ -143,4 +148,4 @@ redux-toolkit will help keep our codebase compact, maintainable and readable.
 Required Reading:
 
 1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how toolkit reduces Redux boilerplate.
-1. [Introduction to Immer](https://immerjs.github.io/immer/) - Simplifies writing immutable state logic.
+1. [Introduction to Immer](https://immerjs.github.io/immer/) - simplifies writing immutable state logic.
