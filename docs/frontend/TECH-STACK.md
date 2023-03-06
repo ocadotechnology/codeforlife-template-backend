@@ -115,8 +115,21 @@ root.render(
 
 ### redux-thunk
 
-TODO
+redux-thunk is a JS library that builds on top of Redux. More specifically, it's a Redux middleware. It allows Redux to dispatch asynchronous actions to the store. The most common example of this is fetching data from the database via API calls.
+
+Required Reading:
+
+1. [Writing Logic with Thunks](https://redux.js.org/usage/writing-logic-thunks) - Thunks will encapsulate all sync + async business logic on the frontend.
+
+NOTE: redux-thunk is included in redux-toolkit by default as it's the standard approach to writing async actions with Redux.
 
 ### redux-toolkit
 
-TODO
+redux-toolkit is JS library that builds on top of Redux and redux-thunk, among other important JS libraries (e.g. Immer).
+
+redux-toolkit will help keep our codebase compact, maintainable and readable.
+
+Required Reading:
+
+1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how toolkit reduces Redux boilerplate.
+1. [Introduction to Immer](https://immerjs.github.io/immer/) - Simplifies writing immutable state logic.
