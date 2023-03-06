@@ -5,18 +5,19 @@ This document details the stack of technologies all CodeForLife frontend's will 
 ```mermaid
 graph BT;
     subgraph Style;
-        css -->|stylized components| scss;
+        css[CSS] -->|stylized components| scss[SCSS];
     end;
-    scss -->|syntax preprocessing| react
+    scss -->|syntax preprocessing| react[React]
     subgraph Code;
-        javascript -->|component functionality| typescript -->|type safety| eslint;
+        javascript[JavaScript] -->|component functionality| typescript[TypeScript] -->|type safety| eslint[ESLint];
     end;
-    eslint -->|code formatting| react & redux;
+    eslint -->|code formatting| react & redux[Redux];
     subgraph UI;
-        react -->|UI components| react-redux;
+        react -->|components| mui[Material UI] & react-redux;
         redux -->|global state management| react-redux & redux-thunk;
         redux-thunk -->|async logic| redux-toolkit;
     end;
+    mui -->|pre-stylized components| APP;
     react-redux -->|react-redux integration| APP;
     redux-toolkit -->|boilerplate generators| APP;
 ```
@@ -66,19 +67,20 @@ Read the [official SCSS guide](https://sass-lang.com/guide) for comprehensive de
 
 ## UI
 
-### REACT
+### React
 
-REACT is a JS library for building UI components. Our REACT components will be written in TS. There are two approaches to writing REACT components: [class components vs functional components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). Functional components are the latest REACT standard and will be the approach we take.
+React is a JS library for building UI components. Our React components will be written in TS. There are two approaches to writing React components: [class components vs functional components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). Functional components are the latest React standard and will be the approach we take.
 
 Key features:
 
-1. Performance - REACT components have a well structured life-cycle that allow for efficient data rendering. 
+1. Performance - React components have a well structured life-cycle that allow for efficient data rendering. 
 1. Readability - Components are structured in a manner that allows developers to directly link data to HTML elements.  
 1. Reusability - Generic components can be created to remove boilerplate components.
 
 Required Reading:
 
 1. [Core React Hooks](https://www.valentinog.com/blog/hooks/)
+1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html)
 
 ### Redux
 
@@ -88,16 +90,16 @@ Redux is critical for medium-to-large scale projects as state management can qui
 
 Required Reading:
 
-1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how redux can integrated into REACT components.
+1. [Redux Tutorial](https://www.valentinog.com/blog/redux/) - learn how redux can integrated into React components.
 1. [Redux Style Guide](https://redux.js.org/style-guide/) - we must follow these redux style guidelines!
 
-NOTE: Redux serves the same purpose as REACT's native ContextAPI. However, Redux is more sophisticated is generally the standard for production-ready apps.
+NOTE: Redux serves the same purpose as React's native ContextAPI. However, Redux is more sophisticated is generally the standard for production-ready apps.
 
 ### react-redux
 
-react-redux is a JS library that integrates Redux into REACT.
+react-redux is a JS library that integrates Redux into React.
 
-react-redux allows Redux to provide it's "global data store" to all REACT components in our REACT app.
+react-redux allows Redux to provide it's "global data store" to all React components in our React app.
 
 ```tsx
 import { createRoot } from 'react-dom/client';
