@@ -1,1 +1,1 @@
-# codeforlife-deployment-template
+# codeforlife-service-template
