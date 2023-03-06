@@ -1,3 +1,3 @@
 # codeforlife-service-template
 
-[Frontend](FRONTEND.md)
+[Frontend Docs](docs/frontend)
