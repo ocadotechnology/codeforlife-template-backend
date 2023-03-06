@@ -1,1 +1,1 @@
-# codeforlife-example-frontend
+# codeforlife-deployment-template
