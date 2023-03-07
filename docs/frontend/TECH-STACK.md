@@ -82,14 +82,14 @@ React is a JS library for building UI components. Our React components will be w
 
 Key features:
 
-1. Performance - React components have a well structured life-cycle that allow for efficient data rendering. 
+1. Performance - React components have a well structured life-cycle that allow for efficient data rendering.
 1. Readability - Components are structured in a manner that allows developers to directly link data to HTML elements.  
 1. Reusability - Generic components can be created to remove boilerplate components.
 
 Required Reading:
 
-1. [Core React Hooks](https://www.valentinog.com/blog/hooks/) - thoroughly understand useState and useEffect. 
-1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html) - be generally aware of the other hooks and their purpose. 
+1. [Core React Hooks](https://www.valentinog.com/blog/hooks/) - thoroughly understand useState and useEffect.
+1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html) - be generally aware of the other hooks and their purpose.
 
 ### react-router-dom
 
@@ -172,6 +172,7 @@ Required Reading:
 Cypress is a front end testing tool for web applications. Cypress runs on Windows, Linux, and macOS. Furthermore, Cypress can be tailored to specifically [test React components](https://docs.cypress.io/guides/component-testing/overview).
 
 Cypress allows us to write [many types of tests](https://docs.cypress.io/guides/overview/why-cypress#Who-uses-Cypress):
+
 1. End-to-end (E2E) tests.
 1. Component tests.
 1. Integration tests.
@@ -182,6 +183,7 @@ Required Reading:
 1. [Testing React Components](https://docs.cypress.io/guides/component-testing/react/quickstart#Testing-React-Components) - understand how to mount components and make assertions.
 
 **NOTE:** There are trade-offs to using Cypress over Selenium for testing. See:
+
 1. [Cypress Features](https://docs.cypress.io/guides/overview/why-cypress#Features)
 1. [Cypress Tradeoffs](https://docs.cypress.io/guides/references/trade-offs)
 1. [Cypress Limitations](https://www.browserstack.com/guide/cypress-vs-selenium#:~:text=Selenium%20is%20preferred%20over%20Cypress%20when%20one%20need%3A)
