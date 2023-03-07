@@ -18,10 +18,11 @@ graph BT;
       cypress[Cypress];
     end;
     subgraph UI;
-        react -->|components| cypress & mui[Material UI] & react-redux;
+        react -->|components| cypress & react-router-dom & mui[Material UI] & react-redux;
         redux -->|global state management| react-redux & redux-thunk;
         redux-thunk -->|async logic| redux-toolkit;
     end;
+    react-router-dom -->|browser routing| APP;
     cypress -->|E2E testing| APP;
     mui -->|pre-stylized components| APP;
     react-redux -->|react-redux integration| APP;
@@ -89,6 +90,14 @@ Required Reading:
 
 1. [Core React Hooks](https://www.valentinog.com/blog/hooks/) - thoroughly understand useState and useEffect. 
 1. [All React Hooks](https://reactjs.org/docs/hooks-reference.html) - be generally aware of the other hooks and their purpose. 
+
+### react-router-dom
+
+react-router-dom is a JS library that builds on top of React to support routing between different web pages, where each page is a React component.
+
+Required Reading:
+
+1. [React Router Tutorial](https://reactrouter.com/en/main/start/tutorial)
 
 ### Material UI (MUI)
 
