@@ -5,8 +5,8 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  // incrementAsync,
-  // incrementIfOdd,
+  incrementAsync,
+  incrementIfOdd,
   selectCount
 } from './counterSlice';
 import styles from './Counter.module.css';
@@ -50,18 +50,18 @@ export function Counter(): JSX.Element {
         >
           Add Amount
         </button>
-        {/* <button
+        <button
           className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
+          onClick={() => { void dispatch(incrementAsync(incrementValue)); }}
         >
           Add Async
         </button>
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
+          onClick={() => { dispatch(incrementIfOdd(incrementValue)); }}
         >
           Add If Odd
-        </button> */}
+        </button>
       </div>
     </div>
   );

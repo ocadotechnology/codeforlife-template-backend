@@ -1,18 +1,25 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import store from './app/store';
+import router from './app/router';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-const container = document.getElementById('root')!;
+const container = document.getElementById('root');
+
+if (container === null) throw new Error('root element is null');
+
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
+    <CssBaseline />
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );
