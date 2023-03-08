@@ -20,6 +20,11 @@
     "@typescript-eslint/semi": [
       2,
       "always"
-    ]
+    ],
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/no-invalid-void-type": "off",
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }
