@@ -6,9 +6,10 @@ import {
   AnyAction
 } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import counterReducer from '../features/counter/counterSlice';
-import jokeListReducer from '../features/jokeList/jokeListSlice';
-import jokeListApi from '../features/jokeList/jokeListAPI';
+
+import counterReducer from 'features/counter/counterSlice';
+import jokeListReducer from 'features/jokeList/jokeListSlice';
+import jokeListApi from 'features/jokeList/jokeListAPI';
 
 const store = configureStore({
   reducer: {
