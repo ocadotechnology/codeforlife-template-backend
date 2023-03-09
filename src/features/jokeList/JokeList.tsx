@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
+import Grid2 from '@mui/material/Unstable_Grid2';
+import {
+  List,
+  ListItem,
+  Button,
+  TextField
+} from '@mui/material/';
 
 import { useAppSelector, useAppDispatch } from 'app/hooks';
 import { useLazyGetRandomJokeQuery } from './jokeListAPI';
 import { selectJokes, addJoke } from './jokeListSlice';
+import styles from './JokeList.module.scss';
 
 export default function JokeList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -29,32 +37,49 @@ export default function JokeList(): JSX.Element {
   }
 
   return (
-    <div>
-      <ul>
-        {jokes.map((joke, index) =>
-          <li key={index}>{joke.setup} : {joke.punchline}</li>
-        )}
-      </ul>
-      <button onClick={handleGetRandomJoke}>
-        Get Random Joke
-      </button>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          value={setup}
-          name='setup'
-          id='setup'
-          onChange={handleSetupChange}
-        />
-        <input
-          type='text'
-          value={punchline}
-          name='punchline'
-          id='punchline'
-          onChange={handlePunchlineChange}
-        />
-        <input type='submit' value='Add Joke' />
-      </form>
-    </div>
+    <Grid2 container spacing={2}>
+      <Grid2 xs={12}>
+        <List classes={styles.JokeList}>
+          {jokes.map((joke) =>
+            <ListItem key={joke.id}>{joke.setup} : {joke.punchline}</ListItem>
+          )}
+        </List>
+      </Grid2>
+      <Grid2 xsOffset={4} xs={4}>
+        <Button
+          className={styles.getJokeButton}
+          onClick={handleGetRandomJoke}
+          style={{ marginBottom: '20px' }}>
+          Get Random Joke
+        </Button>
+      </Grid2>
+      <Grid2 container xs={12} spacing={1} >
+        <form onSubmit={handleSubmit} className={styles.addJokeForm}>
+          <Grid2 xsOffset={3} xs={6}>
+            <TextField
+              required
+              id='setup'
+              label='Setup'
+              value={setup}
+              onChange={handleSetupChange}
+            />
+          </Grid2>
+          <Grid2 xsOffset={3} xs={6}>
+            <TextField
+              required
+              id='punchline'
+              label='Punchline'
+              value={punchline}
+              onChange={handlePunchlineChange}
+            />
+          </Grid2>
+          <Grid2 xsOffset={5} xs={2}>
+            <Button type='submit' sx={{ width: '100%' }}>
+              Add Joke
+            </Button>
+          </Grid2>
+        </form>
+      </Grid2>
+    </Grid2>
   );
 }
