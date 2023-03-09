@@ -7,19 +7,19 @@ import {
 } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
+import api from 'app/api';
 import counterReducer from 'features/counter/counterSlice';
 import jokeListReducer from 'features/jokeList/jokeListSlice';
-import jokeListApi from 'features/jokeList/jokeListAPI';
 
 const store = configureStore({
   reducer: {
+    [api.reducerPath]: api.reducer,
     counter: counterReducer,
-    jokeList: jokeListReducer,
-    [jokeListApi.reducerPath]: jokeListApi.reducer
+    jokeList: jokeListReducer
   },
   middleware: (getDefaultMiddleware) => [
     ...getDefaultMiddleware(),
-    jokeListApi.middleware
+    api.middleware
   ]
 });
 

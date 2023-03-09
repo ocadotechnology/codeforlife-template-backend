@@ -1,11 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import api from 'app/api';
 import { Joke } from './jokeListSlice';
 
-const jokeListApi = createApi({
-  reducerPath: 'jokeListApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://official-joke-api.appspot.com/'
-  }),
+const jokeListApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getRandomJoke: builder.query<Joke, void>({
       query: () => 'random_joke'
@@ -14,4 +10,7 @@ const jokeListApi = createApi({
 });
 
 export default jokeListApi;
-export const { useGetRandomJokeQuery, useLazyGetRandomJokeQuery } = jokeListApi;
+export const {
+  useGetRandomJokeQuery,
+  useLazyGetRandomJokeQuery
+} = jokeListApi;

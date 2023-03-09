@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { type RootState } from 'app/store';
-import api from './jokeListAPI';
+import jokeListApi from './jokeListAPI';
 
 export interface Joke {
   id: number,
@@ -34,14 +34,14 @@ export const jokeListSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(api.endpoints.getRandomJoke.matchPending, (state) => {
+      .addMatcher(jokeListApi.endpoints.getRandomJoke.matchPending, (state) => {
         state.status = 'loading';
       })
-      .addMatcher(api.endpoints.getRandomJoke.matchFulfilled, (state, action) => {
+      .addMatcher(jokeListApi.endpoints.getRandomJoke.matchFulfilled, (state, action) => {
         state.status = 'idle';
         state.jokes.push(action.payload);
       })
-      .addMatcher(api.endpoints.getRandomJoke.matchRejected, (state) => {
+      .addMatcher(jokeListApi.endpoints.getRandomJoke.matchRejected, (state) => {
         state.status = 'failed';
       });
   }
