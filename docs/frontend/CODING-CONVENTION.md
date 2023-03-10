@@ -15,7 +15,7 @@ There old-school approach to structuring React projects is to group files by typ
   component2.jsx
 ```
 
-However, this splits code co-dependent code across our codebase. The new-school approach is to "[feature folders](https://redux.js.org/faq/code-structure)", where co-dependent code is co-located for easier navigability:
+However, this splits co-dependent code across our codebase. The new-school approach is "[feature folders](https://redux.js.org/faq/code-structure)", where co-dependent code is co-located for easier navigability:
 
 ```txt
 /features
@@ -72,7 +72,7 @@ With this is in mind, our file structure will be:
 
 `components` contains reusable components that will be used in 2 or more places within your app. This should be generic in nature. For example, a button with a callback to handle a general click event.
 
-**NOTE:** Only components that will be reused throughout this app only should go in the folder. If it will be reused throughout multiple app's, it should go in the [components folder in CFL's JS Package](https://github.com/ocadotechnology/codeforlife-package-javascript/tree/main/src/components).
+**NOTE:** Only components that will be reused throughout this app only should go in the folder. If it will be reused throughout multiple apps, it should go in the [components folder in CFL's JS Package](https://github.com/ocadotechnology/codeforlife-package-javascript/tree/main/src/components).
 
 ### /features
 
@@ -80,7 +80,7 @@ With this is in mind, our file structure will be:
 
 ### /pages
 
-`pages` contains the web pages that we will route to in our app. Routing rules are defined for these pages in `app/router.ts`.
+`pages` contains the web pages that we will route to in our app. Routing rules are defined for these pages in `app/router.ts`. Pages should be a composition of features.
 
 ### index
 
@@ -88,14 +88,14 @@ With this is in mind, our file structure will be:
 
 ## React
 
-React components must be written as functional components, using hooks to side effects required. The hooks you will most commonly use are:
+React components must be written as functional components with hooks. The hooks you will most commonly use are:
 
 1. useState
 1. useEffect
 1. useAppDispatch (see [hooks.ts](../../src/app/hooks.ts))
 1. useAppSelector (see [hooks.ts](../../src/app/hooks.ts))
 
-**NOTE:** TypeScript requires use to use a type-defined hooks for useDispatch and useSelector.
+**NOTE:** TypeScript requires us to use type-defined hooks for useDispatch and useSelector.
 
 ## Redux and Redux Toolkit (RTK)
 
@@ -105,7 +105,7 @@ You're required to use redux to centrally store any data that meets one of these
 1. it's used as a property in more than one component;
 1. it needs to be cached for repeated, quick access;
 
-However, there are time where components can define a local state using the useState hook as it doesn't make sense to persist this info once the component is unmounted. For example, completing a form:
+However, there are times where components can define a local state using the useState hook as it doesn't make sense to persist this info once the component is unmounted. For example, completing a form:
 
 ```tsx
 import React, { useState } from 'react';
@@ -163,7 +163,7 @@ RTK condenses all 3 layers of abstraction into a `slice`. For each feature of th
 
 ## RTK - Making API calls
 
-The base API settings are configure in `app/api.ts`. However, each feature will need to inject the base api with the endpoints it requires.
+The base API settings are configured in `app/api.ts`. However, each feature will need to inject the base api with the endpoints it requires.
 
 ```ts
 import api from 'app/api';
@@ -189,7 +189,7 @@ Next, the API's response must be globally stored using the slice's "extra reduce
 ```ts
 import { createSlice } from '@reduxjs/toolkit';
 import { type RootState } from 'app/store';
-import userApi from './jokeListAPI';
+import userApi from './userAPI';
 
 export interface User {
   id: number,
@@ -202,7 +202,7 @@ export interface UserState {
 }
 
 const initialState: UserState = {
-  jokes: [],
+  list: [],
   status: 'idle'
 };
 
@@ -232,17 +232,16 @@ export const selectUsers = (state: RootState): User[] => state.user.list;
 export default userSlice.reducer;
 ```
 
-Then, this API can be used in the features component.
+Then, this API can be used in the feature's component.
 
 ```tsx
+import { useAppSelector } from 'app/hooks';
 import { selectUsers } from './userSlice';
 import { useLazyGetUsersQuery } from './userAPI';
 
-export default function JokeList(): JSX.Element {
+export default function UserList(): JSX.Element {
   const users = useAppSelector(selectUsers);
   const [lazyGetUsers] = useLazyGetUsersQuery();
-
-  import { useAppSelector, useAppDispatch } from 'app/hooks';
 
   function handleGetUsers(): void {
     void lazyGetUsers();
