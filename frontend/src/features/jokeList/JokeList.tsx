@@ -10,7 +10,6 @@ import {
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { useLazyGetRandomJokeQuery } from './jokeListAPI';
 import { selectJokes, addJoke } from './jokeListSlice';
-import styles from './JokeList.module.scss';
 
 export default function JokeList(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -39,7 +38,7 @@ export default function JokeList(): JSX.Element {
   return (
     <Grid2 container spacing={2}>
       <Grid2 xs={12}>
-        <List classes={styles.JokeList}>
+        <List sx={{ width: '100%' }}>
           {jokes.map((joke) =>
             <ListItem key={joke.id}>{joke.setup} : {joke.punchline}</ListItem>
           )}
@@ -47,14 +46,14 @@ export default function JokeList(): JSX.Element {
       </Grid2>
       <Grid2 xsOffset={4} xs={4}>
         <Button
-          className={styles.getJokeButton}
+          sx={{ width: '100%' }}
           onClick={handleGetRandomJoke}
           style={{ marginBottom: '20px' }}>
           Get Random Joke
         </Button>
       </Grid2>
       <Grid2 container xs={12} spacing={1} >
-        <form onSubmit={handleSubmit} className={styles.addJokeForm}>
+        <form onSubmit={handleSubmit} style={{ width: '100%', height: '100%' }}>
           <Grid2 xsOffset={3} xs={6}>
             <TextField
               required

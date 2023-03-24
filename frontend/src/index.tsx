@@ -9,7 +9,6 @@ import store from './app/store';
 import router from './app/router';
 import theme from './app/theme';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
 
 const container = document.getElementById('root');
 
