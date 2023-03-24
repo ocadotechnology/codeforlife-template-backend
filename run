@@ -2,9 +2,8 @@
 set -e
 cd "${BASH_SOURCE%/*}"
 
-#./backend/manage.py migrate --noinput
-
 node frontend/djangoBundler.ts &
 
+./backend/manage.py migrate --noinput
 ./backend/manage.py collectstatic --noinput --clear
 ./backend/manage.py runserver "$@"
