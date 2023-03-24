@@ -7,9 +7,9 @@ import {
 } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import api from 'app/api';
-import counterReducer from 'features/counter/counterSlice';
-import jokeListReducer from 'features/jokeList/jokeListSlice';
+import api from '../app/api';
+import counterReducer from '../features/counter/counterSlice';
+import jokeListReducer from '../features/jokeList/jokeListSlice';
 
 const store = configureStore({
   reducer: {
