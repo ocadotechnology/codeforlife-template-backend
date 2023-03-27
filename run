@@ -10,12 +10,7 @@ node djangoBundler.ts &
 
 cd ../backend
 
-pipenv shell
 pipenv install --dev
-
-cd ..
-
-./backend/manage.py migrate --noinput
-./backend/manage.py collectstatic --noinput --clear
-./backend/manage.py runserver "$@"
-
+pipenv run python ./manage.py migrate --noinput
+pipenv run python ./manage.py collectstatic --noinput --clear
+pipenv run python ./manage.py runserver "$@" & cd ..
