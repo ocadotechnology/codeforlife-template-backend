@@ -6,7 +6,7 @@ cd frontend
 
 npm install
 npm run build
-node djangoBundler.ts &
+node djangoBundler.js &
 
 cd ../backend
 
