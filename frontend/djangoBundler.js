@@ -55,7 +55,7 @@ bundler.on('bundled', (bundle) => {
     if (error) {
       return console.log(error)
     }
-    console.log('my_app_react.html django template generated sucessfully')
+    console.log('my_app_react.html django template generated successfully')
   })
 })
 
