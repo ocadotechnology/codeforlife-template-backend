@@ -1,12 +1,12 @@
 {
   "folders": [
     {
-      "name": "service-template",
-      "path": "."
-    },
-    {
       "name": "package-python",
       "path": "../codeforlife-package-python"
+    },
+    {
+      "name": "service-template",
+      "path": "."
     }
   ],
   "settings": {
