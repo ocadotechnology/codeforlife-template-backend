@@ -30,6 +30,9 @@
         "localhost:8000"
       ],
       "django": true,
+      "env": {
+        "SERVICE_NAME": "replace_me"
+      },
       "justMyCode": false,
       "name": "Django Server",
       "preLaunchTask": "migrate-db",
