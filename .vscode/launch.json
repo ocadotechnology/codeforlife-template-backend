@@ -26,6 +26,9 @@
         "localhost:8000"
       ],
       "django": true,
+      "env": {
+        "SERVICE_NAME": "replace-me"
+      },
       "justMyCode": false,
       "name": "Django Server",
       "preLaunchTask": "setup",
