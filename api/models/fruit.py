@@ -18,9 +18,7 @@ class Fruit(models.Model):
     """A piece of fruit."""
 
     name = models.CharField(_("name"), max_length=50)
-
     is_citrus = models.BooleanField(_("is citrus"))
-
     expires_on = models.DateField(_("expires on"))
 
     class Meta(TypedModelMeta):
