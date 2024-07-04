@@ -1,11 +1,6 @@
 #!/bin/bash
 set -e
 
-# cd "${BASH_SOURCE%/*}/.."
+cd "${BASH_SOURCE%/*}/.."
 
-pipenv install --dev
-pipenv run python manage.py migrate --noinput
-pipenv run python manage.py load_fixtures api
-pipenv run python manage.py collectstatic --noinput --clear
-
-# wget -O - https://raw.githubusercontent.com/ocadotechnology/codeforlife-template-backend/backend_template/scripts/setup | SERVICE_NAME=replace-me bash
+wget -O - https://raw.githubusercontent.com/ocadotechnology/codeforlife-workspace/main/scripts/backend/setup | SERVICE_NAME=replace-me bash
