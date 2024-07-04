@@ -8,7 +8,10 @@
         "davidanson.vscode-markdownlint",
         "bierner.markdown-mermaid",
         "streetsidesoftware.code-spell-checker",
-        "dbaeumer.vscode-eslint",
+        "tamasfe.even-better-toml",
+        "github.vscode-github-actions",
+        "codecov.codecov",
+        "ritwickdey.liveserver",
         "ms-python.python",
         "ms-python.debugpy",
         "ms-python.pylint",
@@ -17,7 +20,9 @@
         "ms-python.mypy-type-checker",
         "ms-python.black-formatter",
         "qwtel.sqlite-viewer",
-        "njpwerner.autodocstring"
+        "njpwerner.autodocstring",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
       ]
     }
   },
@@ -40,10 +45,10 @@
     "source=./codeforlife-package-javascript,target=/workspace/codeforlife-package-javascript,type=bind,consistency=cached",
     "source=./codeforlife-package-python,target=/workspace/codeforlife-package-python,type=bind,consistency=cached"
   ],
-  "name": "service-template",
-  "postCreateCommand": "./setup",
+  "name": "template-backend",
+  "postCreateCommand": "sudo chmod u+x scripts/setup && scripts/setup",
   "remoteUser": "root",
   "service": "base-service",
   "shutdownAction": "none",
-  "workspaceFolder": "/workspace/codeforlife-service-template"
+  "workspaceFolder": "/workspace/codeforlife-template-backend"
 }
