@@ -13,7 +13,7 @@ from ..serializers import FruitSerializer
 
 # pylint: disable-next=missing-class-docstring,too-many-ancestors
 class FruitViewSet(ModelViewSet[User, Fruit]):
-    http_method_names = ["get", "post"]
+    http_method_names = ["get", "post", "patch", "delete"]
     permission_classes = [AllowAny]
     serializer_class = FruitSerializer
     queryset = Fruit.objects.all()
