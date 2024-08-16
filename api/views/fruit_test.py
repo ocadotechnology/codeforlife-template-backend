@@ -32,3 +32,13 @@ class TestFruitViewSet(ModelViewSetTestCase[User, Fruit]):
     def test_create(self):
         """Can create a fruit."""
         self.client.create(data={"name": "kiwi", "is_citrus": False})
+
+    def test_destroy(self):
+        """Can destroy a fruit."""
+        self.client.destroy(self.apple)
+
+    def test_partial_update(self):
+        """Can update a fruit."""
+        self.client.partial_update(
+            self.apple, data={"name": f"{self.apple.name}2"}
+        )
