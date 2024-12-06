@@ -13,16 +13,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-import os
 from pathlib import Path
 
-# NOTE: Must come before importing CFL settings.
-os.environ["SERVICE_NAME"] = "REPLACE_ME"
-
-# pylint: disable-next=wildcard-import,unused-wildcard-import,wrong-import-position
-from codeforlife.settings import *
+from codeforlife import set_up_settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent
 
-STATIC_ROOT = get_static_root(BASE_DIR)
+secrets = set_up_settings(BASE_DIR, service_name="REPLACE_ME")
+
+# pylint: disable-next=wildcard-import,unused-wildcard-import,wrong-import-position
+from codeforlife.settings import *
