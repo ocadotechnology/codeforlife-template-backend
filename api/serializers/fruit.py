@@ -11,8 +11,10 @@ from django.utils import timezone
 
 from ..models import Fruit
 
+# pylint: disable=missing-class-docstring
+# pylint: disable=too-many-ancestors
 
-# pylint: disable-next=missing-class-docstring
+
 class FruitSerializer(ModelSerializer[User, Fruit]):
     class Meta:
         model = Fruit
