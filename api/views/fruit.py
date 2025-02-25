@@ -14,6 +14,8 @@ from ..serializers import FruitSerializer
 # pylint: disable-next=missing-class-docstring,too-many-ancestors,too-few-public-methods
 class FruitViewSet(ModelViewSet[User, Fruit]):
     http_method_names = ["get", "post", "patch", "delete"]
+    request_user_class = User
+    model_class = Fruit
     permission_classes = [AllowAny]
     serializer_class = FruitSerializer
     queryset = Fruit.objects.all()
