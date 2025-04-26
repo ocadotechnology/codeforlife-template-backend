@@ -22,6 +22,6 @@ class TestFruitTasks(CeleryTestCase):
         # Update all fruits to have expired yesterday.
         Fruit.objects.update(expires_on=timezone.now() - timedelta(days=1))
         # Run task to delete all expired fruits.
-        self.apply_periodic_task("delete_expired_fruits")
+        self.apply_task("src.tasks.fruit.delete_expired")
         # Assert all fruits have been deleted.
         assert not Fruit.objects.exists()
