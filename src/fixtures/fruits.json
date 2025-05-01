@@ -1,6 +1,6 @@
 [
   {
-    "model": "api.fruit",
+    "model": "src.fruit",
     "pk": 1,
     "fields": {
       "name": "apple",
@@ -9,7 +9,7 @@
     }
   },
   {
-    "model": "api.fruit",
+    "model": "src.fruit",
     "pk": 2,
     "fields": {
       "name": "banana",
@@ -18,7 +18,7 @@
     }
   },
   {
-    "model": "api.fruit",
+    "model": "src.fruit",
     "pk": 3,
     "fields": {
       "name": "orange",
